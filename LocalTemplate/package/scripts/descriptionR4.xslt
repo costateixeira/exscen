@@ -55,7 +55,7 @@
 				<b>
 <!--					<xsl:value-of select="fhir:name/@value" /> -->
 					<xsl:call-template name="replace-linebreaks">
-					  <xsl:with-param name="text" select="fhir:title/@value"/>
+					  <xsl:with-param name="text" select="fhir:name/@value"/>
 					  <xsl:with-param name="replace" select="'\n'"/>
 					</xsl:call-template>
 				</b>
@@ -108,7 +108,7 @@
 
 
 		<td><a name="p2"><xsl:value-of select="fhir:number/@value" /></a></td>
-		<td><xsl:value-of select="fhir:title/@value" /></td>
+		<td><xsl:value-of select="fhir:name/@value" /></td>
 		<td><xsl:value-of select="fhir:description/@value" /></td>
         <td><xsl:call-template name="break"><xsl:with-param name="text" select="/fhir:ExampleScenario/fhir:actor[fhir:actorId/@value=$init]/fhir:name/@value" /></xsl:call-template></td> 
         <td><xsl:call-template name="break"><xsl:with-param name="text" select="/fhir:ExampleScenario/fhir:actor[fhir:actorId/@value=$recv]/fhir:name/@value" /></xsl:call-template></td> 
@@ -125,7 +125,7 @@
 
 	<xsl:template match="alternative">
 		<a name="p2">Alternative: <xsl:value-of select="number/@value" /></a>
-		<xsl:value-of select="title/@value" />
+		<xsl:value-of select="name/@value" />
 		<xsl:value-of select="description/@value" />
 		<!-- IF STEP IS ALTERNATIVE -->
 				<xsl:apply-templates select="./option" />

@@ -20,7 +20,7 @@ Title <xsl:value-of select="/fhir:ExampleScenario/fhir:process/fhir:title/@value
 
 <xsl:template match="fhir:step"><xsl:apply-templates select="fhir:operation"/><xsl:apply-templates select="fhir:process"/><xsl:apply-templates select="fhir:pause"/><xsl:apply-templates select="fhir:alternative"/></xsl:template>
 <xsl:template match="fhir:operation">
-<xsl:text>&#13;&#10;</xsl:text><xsl:value-of select="fhir:initiator/@value"/><xsl:text> </xsl:text><xsl:if test="fhir:dotted/@value='true'">-</xsl:if>-<xsl:text disable-output-escaping="yes">&gt; </xsl:text> <xsl:value-of select="fhir:receiver/@value"/> : <xsl:value-of select="fhir:title/@value"/>\n<xsl:apply-templates select="fhir:request"/><xsl:apply-templates select="fhir:response"/></xsl:template>
+<xsl:text>&#13;&#10;</xsl:text><xsl:value-of select="fhir:initiator/@value"/><xsl:text> </xsl:text><xsl:if test="fhir:dotted/@value='true'">-</xsl:if>-<xsl:text disable-output-escaping="yes">&gt; </xsl:text> <xsl:value-of select="fhir:receiver/@value"/> : <xsl:value-of select="fhir:name/@value"/>\n<xsl:apply-templates select="fhir:request"/><xsl:apply-templates select="fhir:response"/></xsl:template>
 
 <xsl:template match="fhir:step/fhir:process">
 group <xsl:value-of select="./fhir:title/@value"/><xsl:text>&#13;&#10;</xsl:text>
@@ -35,7 +35,7 @@ group#A9CCEF #A9CCEF <xsl:value-of select="fhir:title/@value"/><xsl:text>&#13;&#
 
 
 <xsl:template match="fhir:step/fhir:alternative">
-alt <xsl:value-of select="fhir:title/@value"/> 
+alt <xsl:value-of select="fhir:name/@value"/> 
 <xsl:apply-templates select="fhir:option"/>
 <xsl:text>&#13;&#10;</xsl:text>
 <xsl:apply-templates select="./fhir:step"/><xsl:text>&#13;&#10;end</xsl:text>
@@ -68,9 +68,9 @@ else </xsl:otherwise>
 <xsl:template match="fhir:actor">
 <xsl:variable name="actorType" select="fhir:type/@value"/>
 <xsl:if test="$actorType='person'">
-actor</xsl:if> <xsl:if test="$actorType='system'">
+actor</xsl:if> <xsl:if test="$actorType='entity'">
 participant</xsl:if> 
-<xsl:text> "</xsl:text><xsl:value-of select="fhir:title/@value"/>" as <xsl:apply-templates select="fhir:key/@value"/>
+<xsl:text> "</xsl:text><xsl:value-of select="fhir:name/@value"/>" as <xsl:apply-templates select="fhir:actorId/@value"/>
 <xsl:text></xsl:text>
 </xsl:template>
 

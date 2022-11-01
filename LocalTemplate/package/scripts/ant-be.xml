@@ -5,22 +5,16 @@
 
   <target name="prepareDiagramSource">
     <property name="dir.lib" value="${ig.template}/scripts"/>
-<!--
-    <property name="dir.scenarios-input" value="${ig.template}/scenarios"/> 
--->
+
     <property name="dir.scenarios" value="${ig.temp}/scenarios"/>
     <mkdir dir="${dir.scenarios}"/>
-    <input message="Press Return key to continue..."/>
+    <!-- <input message="Press Return key to continue..."/> -->
     <echo>##########################################</echo>
     <echo>Scenario input files:${dir.scenarios-input}</echo>
     <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.scenarios}" extension=".plantuml" style="${ig.scripts}/diagram.xslt"/>
   </target>
   <target name="renderDiagram" depends="prepareDiagramSource">
-    <echo>########################################## RENDERING DIAGRAMS ###################################</echo>
-    <echo>########################################## output: ${ig.temp}</echo>
-    <echo>##########################################  files: ${dir.scenarios-input}</echo>
-    <echo>######################################## plantuml: ${dir.lib}</echo>
-    
+
     <java jar="${dir.lib}/plantuml.jar" fork="true">
       <jvmarg line="-Dfile.encoding=UTF-8"/>
       <arg line="-tsvg -o &quot;${dir.scenarios}&quot; &quot;${dir.scenarios}/*.plantuml&quot;"/>
@@ -39,18 +33,6 @@
     </fileset>
     <property name="onGenerate.scenario.files" refid="onGenerate.scenario.id"/>
     <pathconvert property="scenariofiles" refid="onGenerate.scenario.id" pathsep="," />
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
-    <echo>Scenario files:${onGenerate.scenario.files}</echo>
-    <echo>Scenario files:${scenariofiles}</echo>
-    <echo>##########################################</echo>
-    <echo>Scenario files:${onGenerate.files}</echo>
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
-    <echo>##########################################</echo>
     <!-- <appendArtifacts files="${onGenerate.scenario.files}"/> -->
   </target>
 

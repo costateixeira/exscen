@@ -4,7 +4,7 @@ Instance: example
 InstanceOf: ExampleScenario
 Usage: #definition
 * status = #draft
-* purpose = "Purpose: this serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."
+* purpose = "This serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."
 * actor[0]
   * key = "Nurse"
   * type = #person

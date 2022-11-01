@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProcessIg">
+  <import file="ant.xml" as="base"/>
+
+
+  <target name="prepareDiagramSource">
+    <property name="dir.lib" value="${ig.template}/scripts"/>
+<!--
+    <property name="dir.scenarios-input" value="${ig.template}/scenarios"/> 
+-->
+    <property name="dir.scenarios" value="${ig.temp}/scenarios"/>
+    <mkdir dir="${dir.scenarios}"/>
+    <input message="Press Return key to continue..."/>
+    <echo>##########################################</echo>
+    <echo>Scenario input files:${dir.scenarios-input}</echo>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.scenarios}" extension=".plantuml" style="${ig.scripts}/diagram.xslt"/>
+  </target>
+  <target name="renderDiagram" depends="prepareDiagramSource">
+    <echo>########################################## RENDERING DIAGRAMS ###################################</echo>
+    <echo>########################################## output: ${ig.temp}</echo>
+    <echo>##########################################  files: ${dir.scenarios-input}</echo>
+    <echo>######################################## plantuml: ${dir.lib}</echo>
+    
+    <java jar="${dir.lib}/plantuml.jar" fork="true">
+      <jvmarg line="-Dfile.encoding=UTF-8"/>
+      <arg line="-tsvg -o &quot;${dir.scenarios}&quot; &quot;${dir.scenarios}/*.plantuml&quot;"/>
+    </java>
+  </target>
+<!--
+--> 
+   <target name="createExampleScenarioPage" depends="renderDiagram" extensionOf="onGenerate.extend">
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension=".xhtml" style="${ig.scripts}/sequence.xslt"/>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension="-description.xhtml" style="${ig.scripts}/description.xslt"/>
+    <xslt basedir="${ig.temp}" includes="ExampleScenario*.xml" destdir="${dir.temp.includes}" extension="-resources.xhtml" style="${ig.scripts}/resources.xslt"/>
+    <echo>=============================== TRANSFORMING PAGES ===================================</echo>
+<!-- see if this is needed or if we can rely on the resource being addded --> 
+    <fileset id="onGenerate.scenario.id" dir="${ig.root}">
+      <include name="${ig.temp}/ExampleScenario*.xml"/>
+    </fileset>
+    <property name="onGenerate.scenario.files" refid="onGenerate.scenario.id"/>
+    <pathconvert property="scenariofiles" refid="onGenerate.scenario.id" pathsep="," />
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <echo>Scenario files:${onGenerate.scenario.files}</echo>
+    <echo>Scenario files:${scenariofiles}</echo>
+    <echo>##########################################</echo>
+    <echo>Scenario files:${onGenerate.files}</echo>
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <echo>##########################################</echo>
+    <!-- <appendArtifacts files="${onGenerate.scenario.files}"/> -->
+  </target>
+
+  <!--
+   <target name="createIGyaml" depends="onGenerate.igQa,onGenerate.setup">
+    <xslt in="${onGenerate.ig.source}xml" out="temp/pages/application.yaml" style="${ig.scripts}/hapi-yaml.xslt"/>
+
+    <fileset id="onGenerate.hapi.yaml" dir="${ig.root}">
+      <include name="temp/pages/application.yaml"/>
+    </fileset>
+    <property name="onGenerate.hapi.yaml.files" refid="onGenerate.hapi.yaml"/>
+    <appendArtifacts files="${onGenerate.hapi.yaml.files}"/>
+  </target>
+-->
+</project>
+

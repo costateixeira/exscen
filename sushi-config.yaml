@@ -21,7 +21,7 @@ version: 1.0.0
 # Although fhirVersions is 0..* in the ImplementationGuide resource
 # it can be a single item OR and array here (but so far SUSHI only
 # supports 4.0.1 anyway).
-#fhirVersion: 5.0.0-ballot
+fhirVersion: 5.0.0-ballot
 
 # The following two lines correspond to items that used to be in
 # ig.ini but were moved to IG.definition.parameter. For
@@ -31,7 +31,6 @@ version: 1.0.0
 # to the IG JSON using the formal names.
 copyrightYear: 2021+
 releaseLabel: STU1
-fhirVersion: 5.0.0-ballot
 
 # The publisher can be a single item or a list, each with a name and
 # optional url and/or email. The first publisher's name will be used

@@ -31,6 +31,7 @@ version: 1.0.0
 # to the IG JSON using the formal names.
 copyrightYear: 2021+
 releaseLabel: STU1
+fhirVersion: 5.0.0-ballot
 
 # The publisher can be a single item or a list, each with a name and
 # optional url and/or email. The first publisher's name will be used

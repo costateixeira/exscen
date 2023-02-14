@@ -1,9 +1,9 @@
 @ECHO OFF
 
 REM SET THESE VARIABLES
-set templateurl=https://github.com/hl7-be/hl7.be.fhir.template.git
-set templatebranch=remove-yaml-gen
-set templatefolder=hl7.be.fhir.template#current
+set templateurl=https://github.com/costateixeira/ig-template-base.git
+set templatebranch=feature/examplescenario
+set templatefolder=fhir.base.template#current
 
 
 REM NORMALLY YOU DON'T NEED TO TOUCH THESE

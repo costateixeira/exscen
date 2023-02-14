@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:fhir="http://hl7.org/fhir" version="1.0">
     <xsl:output method="html" />
     <xsl:param name="pref" select="pref" />
-    <xsl:template match="/">
+	<xsl:template match="/">
 
 
 		<div>

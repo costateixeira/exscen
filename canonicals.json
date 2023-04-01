@@ -1,0 +1,15 @@
+[
+  {
+    "id" : "example",
+    "type" : "ExampleScenario",
+    "url" : "http://example.com/fhir/example/ExampleScenario/example",
+    "version" : "1.0.0"
+  },
+  {
+    "id" : "my-ig",
+    "type" : "ImplementationGuide",
+    "url" : "http://example.com/fhir/example/ImplementationGuide/my-ig",
+    "version" : "1.0.0",
+    "name" : "ExampleIG"
+  }
+]

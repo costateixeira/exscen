@@ -1,0 +1,247 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<http://example.com/fhir/example/ExampleScenario/example> a fhir:ExampleScenario ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "example"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: ExampleScenario</b><a name=\"example\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource ExampleScenario &quot;example&quot; </p></div><p><b>url</b>: <code>http://example.com/fhir/example/ExampleScenario/example</code></p><p><b>version</b>: 1.0.0</p><p><b>status</b>: draft</p><p><b>date</b>: 2023-04-01 05:54:08+0000</p><p><b>publisher</b>: My Organization</p><p><b>contact</b>: My Organization: <a href=\"http://example.com/committees\">http://example.com/committees</a>,<a href=\"mailto:my-group@example.com\">my-group@example.com</a>, Bob Smith: <a href=\"mailto:bobsmith@example.com\">bobsmith@example.com</a></p><p><b>jurisdiction</b>: World <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (m49.htm#001)</span></p><p><b>purpose</b>: This serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR.</p><blockquote><p><b>actor</b></p><p><b>actorId</b>: Nurse</p><p><b>type</b>: person</p><p><b>name</b>: Nurse</p><p><b>description</b>: The Nurse</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: MAP</p><p><b>type</b>: entity</p><p><b>name</b>: Nurse's Tablet</p><p><b>description</b>: The entity that receives the Administration Requests to show the nurse to perform them</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: OP</p><p><b>type</b>: entity</p><p><b>name</b>: MAR / Scheduler</p><p><b>description</b>: The Medication Administration Order Placer</p></blockquote><blockquote><p><b>actor</b></p><p><b>actorId</b>: MAC</p><p><b>type</b>: entity</p><p><b>name</b>: MAR / EHR</p><p><b>description</b>: The entity that receives the Medication Administration reports</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001</p><p><b>name</b>: Initial Prescription</p><p><b>description</b>: The initial prescription which describes &quot;medication X, 3 times per day&quot; - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule).</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.001</p><p><b>name</b>: Request for day 1, morning</p><p><b>description</b>: The administration request for day 1, morning</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.002</p><p><b>name</b>: Request for day 1, lunch</p><p><b>description</b>: The administration request for day 1, lunch</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.003</p><p><b>name</b>: Request for day 1, evening</p><p><b>description</b>: The administration request for day 1, evening</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.004</p><p><b>name</b>: Request for day 2, morning</p><p><b>description</b>: The administration request for day 2, morning</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.005</p><p><b>name</b>: Request for day 2, lunch</p><p><b>description</b>: The administration request for day 2, lunch</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001.006</p><p><b>name</b>: Request for day 2, evening</p><p><b>description</b>: The administration request for day 2, evening</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm001a</p><p><b>name</b>: Morning meds - taken</p><p><b>description</b>: Administration report for day 1, morning: Taken</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm001b</p><p><b>name</b>: Morning meds - not taken</p><p><b>description</b>: Administration report for day 1, morning: NOT Taken</p></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherx001bundle</p><p><b>name</b>: Bundle of Medication Requests</p><p><b>description</b>: All the medication Requests for Day 1</p><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.001</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.002</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.003</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.004</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.005</p></blockquote><blockquote><p><b>containedInstance</b></p><p><b>resourceId</b>: iherx001.006</p></blockquote></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iheadm002</p><p><b>name</b>: Lunch meds - taken</p><p><b>description</b>: Administration report for day 1, lunch: Taken</p><blockquote><p><b>version</b></p><p><b>versionId</b>: iheadm002v1</p><p><b>description</b>: Medication just taken</p></blockquote><blockquote><p><b>version</b></p><p><b>versionId</b>: iheadm002v2</p><p><b>description</b>: Medication rejected</p></blockquote></blockquote><blockquote><p><b>instance</b></p><p><b>resourceId</b>: iherxqry</p><p><b>name</b>: Search query1</p><p><b>description</b>: The search administration request for day 1, morning</p></blockquote><blockquote><p><b>process</b></p><p><b>title</b>: Mobile Medication Administration</p><p><b>description</b>: This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR.</p><p><b>preConditions</b>: Medication administration requests are in the EHR / MAR, scheduled for each individual intake.</p><p><b>postConditions</b>: Medication administration Reports are submitted, EHR is updated.</p><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>Get today's schedule</td><td>Nurse</td><td>MAP</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p><blockquote><p><b>operation</b></p><p><b>name</b>: Query administration orders</p><p><b>initiator</b>: MAP</p><p><b>receiver</b>: OP</p><p><b>description</b>: Query for medication administration orders,\\n- For today's shifts\\n- For today's patients</p><h3>Requests</h3><table class=\"grid\"><tr><td>-</td><td><b>ResourceId</b></td></tr><tr><td>*</td><td>iherxqry</td></tr></table><h3>Responses</h3><table class=\"grid\"><tr><td>-</td><td><b>ResourceId</b></td></tr><tr><td>*</td><td>iherx001bundle</td></tr></table></blockquote></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>Notify (alert)</td><td>MAP</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>Read orders</td><td>Nurse</td><td>MAP</td></tr></table></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>Ask if patient took meds</td><td>Nurse</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p><blockquote><p><b>alternative</b></p><p><b>title</b>: Patient took meds</p><p><b>description</b>: Invoke if patient took medications</p><blockquote><p><b>step</b></p><blockquote><p><b>operation</b></p></blockquote></blockquote></blockquote><blockquote><p><b>alternative</b></p><p><b>title</b>: No drugs</p><p><b>description</b>: No, patient did not take meds</p><blockquote><p><b>step</b></p><blockquote><p><b>operation</b></p></blockquote></blockquote></blockquote><blockquote><p><b>alternative</b></p><p><b>title</b>: Not clear</p><p><b>description</b>: Unknown whether patient took medications or not</p></blockquote></blockquote><blockquote><p><b>step</b></p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td></tr><tr><td>*</td><td>Administer drug</td><td>Nurse</td><td>Nurse</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p><h3>Operations</h3><table class=\"grid\"><tr><td>-</td><td><b>Name</b></td><td><b>Initiator</b></td><td><b>Receiver</b></td><td><b>InitiatorActive</b></td></tr><tr><td>*</td><td>Record administration</td><td>Nurse</td><td>MAP</td><td>true</td></tr></table></blockquote><blockquote><p><b>step</b></p><p><b>pause</b>: true</p><blockquote><p><b>operation</b></p><p><b>name</b>: Upload administration reports</p><p><b>initiator</b>: Nurse</p><p><b>receiver</b>: MAP</p><p><b>initiatorActive</b>: true</p><h3>Requests</h3><table class=\"grid\"><tr><td>-</td><td><b>ResourceId</b></td><td><b>VersionId</b></td></tr><tr><td>*</td><td>iheadm002</td><td>iheadm002v1</td></tr></table></blockquote></blockquote><blockquote><p><b>step</b></p><blockquote><p><b>operation</b></p><p><b>name</b>: Upload administration reports</p><p><b>initiator</b>: MAP</p><p><b>receiver</b>: MAC</p><p><b>description</b>: The nurse's system uploads the administration results to the server</p><h3>Requests</h3><table class=\"grid\"><tr><td>-</td><td><b>ResourceId</b></td></tr><tr><td>*</td><td>iheadm001a</td></tr></table></blockquote></blockquote></blockquote></div>"
+  ] ; # 
+  fhir:url [ fhir:v "http://example.com/fhir/example/ExampleScenario/example"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "1.0.0"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2023-04-01T05:54:08+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "My Organization"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "My Organization" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "http://example.com/committees" ]
+     ] [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "my-group@example.com" ]
+     ] )
+  ] [
+     fhir:name [ fhir:v "Bob Smith" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "email" ] ;
+       fhir:value [ fhir:v "bobsmith@example.com" ] ;
+       fhir:use [ fhir:v "work" ]
+     ] )
+  ] ) ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "http://unstats.un.org/unsd/methods/m49/m49.htm"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "001" ] ;
+       fhir:display [ fhir:v "World" ]
+     ] )
+  ] ) ; # 
+  fhir:purpose [ fhir:v "This serves to demonstrate the performing of medication administration, by using remote / mobile devices to a) Get the planned medication administrations and b) Record the performing of these administrations without a permanent connection to the EHR."] ; # 
+  fhir:actor ( [
+     fhir:actorId [ fhir:v "Nurse" ] ;
+     fhir:type [ fhir:v "person" ] ;
+     fhir:name [ fhir:v "Nurse" ] ;
+     fhir:description [ fhir:v "The Nurse" ]
+  ] [
+     fhir:actorId [ fhir:v "MAP" ] ;
+     fhir:type [ fhir:v "entity" ] ;
+     fhir:name [ fhir:v "Nurse's Tablet" ] ;
+     fhir:description [ fhir:v "The entity that receives the Administration Requests to show the nurse to perform them" ]
+  ] [
+     fhir:actorId [ fhir:v "OP" ] ;
+     fhir:type [ fhir:v "entity" ] ;
+     fhir:name [ fhir:v "MAR / Scheduler" ] ;
+     fhir:description [ fhir:v "The Medication Administration Order Placer" ]
+  ] [
+     fhir:actorId [ fhir:v "MAC" ] ;
+     fhir:type [ fhir:v "entity" ] ;
+     fhir:name [ fhir:v "MAR / EHR" ] ;
+     fhir:description [ fhir:v "The entity that receives the Medication Administration reports" ]
+  ] ) ; # 
+  fhir:instance ( [
+     fhir:resourceId [ fhir:v "iherx001" ] ;
+     fhir:name [ fhir:v "Initial Prescription" ] ;
+     fhir:description [ fhir:v "The initial prescription which describes \"medication X, 3 times per day\" - the exact scheduling is not   in the initial prescription (it is left for the care teams to decide on the schedule)." ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.001" ] ;
+     fhir:name [ fhir:v "Request for day 1, morning" ] ;
+     fhir:description [ fhir:v "The administration request for day 1, morning" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.002" ] ;
+     fhir:name [ fhir:v "Request for day 1, lunch" ] ;
+     fhir:description [ fhir:v "The administration request for day 1, lunch" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.003" ] ;
+     fhir:name [ fhir:v "Request for day 1, evening" ] ;
+     fhir:description [ fhir:v "The administration request for day 1, evening" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.004" ] ;
+     fhir:name [ fhir:v "Request for day 2, morning" ] ;
+     fhir:description [ fhir:v "The administration request for day 2, morning" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.005" ] ;
+     fhir:name [ fhir:v "Request for day 2, lunch" ] ;
+     fhir:description [ fhir:v "The administration request for day 2, lunch" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001.006" ] ;
+     fhir:name [ fhir:v "Request for day 2, evening" ] ;
+     fhir:description [ fhir:v "The administration request for day 2, evening" ]
+  ] [
+     fhir:resourceId [ fhir:v "iheadm001a" ] ;
+     fhir:name [ fhir:v "Morning meds - taken" ] ;
+     fhir:description [ fhir:v "Administration report for day 1, morning: Taken" ]
+  ] [
+     fhir:resourceId [ fhir:v "iheadm001b" ] ;
+     fhir:name [ fhir:v "Morning meds - not taken" ] ;
+     fhir:description [ fhir:v "Administration report for day 1, morning: NOT Taken" ]
+  ] [
+     fhir:resourceId [ fhir:v "iherx001bundle" ] ;
+     fhir:name [ fhir:v "Bundle of Medication Requests" ] ;
+     fhir:description [ fhir:v "All the medication Requests for Day 1" ] ;
+     fhir:containedInstance ( [
+       fhir:resourceId [ fhir:v "iherx001.001" ]
+     ] [
+       fhir:resourceId [ fhir:v "iherx001.002" ]
+     ] [
+       fhir:resourceId [ fhir:v "iherx001.003" ]
+     ] [
+       fhir:resourceId [ fhir:v "iherx001.004" ]
+     ] [
+       fhir:resourceId [ fhir:v "iherx001.005" ]
+     ] [
+       fhir:resourceId [ fhir:v "iherx001.006" ]
+     ] )
+  ] [
+     fhir:resourceId [ fhir:v "iheadm002" ] ;
+     fhir:name [ fhir:v "Lunch meds - taken" ] ;
+     fhir:description [ fhir:v "Administration report for day 1, lunch: Taken" ] ;
+     fhir:version ( [
+       fhir:versionId [ fhir:v "iheadm002v1" ] ;
+       fhir:description [ fhir:v "Medication just taken" ]
+     ] [
+       fhir:versionId [ fhir:v "iheadm002v2" ] ;
+       fhir:description [ fhir:v "Medication rejected" ]
+     ] )
+  ] [
+     fhir:resourceId [ fhir:v "iherxqry" ] ;
+     fhir:name [ fhir:v "Search query1" ] ;
+     fhir:description [ fhir:v "The search administration request for day 1, morning" ]
+  ] ) ; # 
+  fhir:process ( [
+     fhir:title [ fhir:v "Mobile Medication Administration" ] ;
+     fhir:description [ fhir:v "This scenario demonstrates the process of getting the relevant medication instructions for a patient visit and reporting the results of administration. The scenario is as follows: After the prescription is issued, the institution schedules each individual administration event in the Medication Administration Record (MAR). When preparing for a visit, the nurse queries the MAR for the scheduled administrations, obtaining a bundle of records. The nurse then performs the care activities and registers the results in the device. Upon synchronization of the device and the institution, the results of administration are uploaded to the EHR, thus updating the MAR." ] ;
+     fhir:preConditions [ fhir:v "Medication administration requests are in the EHR / MAR, scheduled for each individual intake." ] ;
+     fhir:postConditions [ fhir:v "Medication administration Reports are submitted, EHR is updated." ] ;
+     fhir:step ( [
+       fhir:operation [
+         fhir:name [ fhir:v "Get today's schedule" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "MAP" ]
+       ]
+     ] [
+       fhir:pause [ fhir:v "true"^^xsd:boolean ] ;
+       fhir:operation [
+         fhir:name [ fhir:v "Query administration orders" ] ;
+         fhir:initiator [ fhir:v "MAP" ] ;
+         fhir:receiver [ fhir:v "OP" ] ;
+         fhir:description [ fhir:v "Query for medication administration orders,\\n- For today's shifts\\n- For today's patients" ] ;
+         fhir:request [
+           fhir:resourceId [ fhir:v "iherxqry" ]
+         ] ;
+         fhir:response [
+           fhir:resourceId [ fhir:v "iherx001bundle" ]
+         ]
+       ]
+     ] [
+       fhir:operation [
+         fhir:name [ fhir:v "Notify (alert)" ] ;
+         fhir:initiator [ fhir:v "MAP" ] ;
+         fhir:receiver [ fhir:v "Nurse" ]
+       ]
+     ] [
+       fhir:pause [ fhir:v "true"^^xsd:boolean ] ;
+       fhir:operation [
+         fhir:name [ fhir:v "Read orders" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "MAP" ]
+       ]
+     ] [
+       fhir:operation [
+         fhir:name [ fhir:v "Ask if patient took meds" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "Nurse" ]
+       ]
+     ] [
+       fhir:pause [ fhir:v "true"^^xsd:boolean ] ;
+       fhir:alternative ( [
+         fhir:title [ fhir:v "Patient took meds" ] ;
+         fhir:description [ fhir:v "Invoke if patient took medications" ] ;
+         fhir:step ( [
+           fhir:operation [
+             fhir:name [ fhir:v "Register meds taken" ] ;
+             fhir:initiator [ fhir:v "Nurse" ] ;
+             fhir:receiver [ fhir:v "MAP" ] ;
+             fhir:initiatorActive [ fhir:v "true"^^xsd:boolean ]
+           ]
+         ] )
+       ] [
+         fhir:title [ fhir:v "No drugs" ] ;
+         fhir:description [ fhir:v "No, patient did not take meds" ] ;
+         fhir:step ( [
+           fhir:operation [
+             fhir:name [ fhir:v "Register meds NOT taken" ] ;
+             fhir:initiator [ fhir:v "Nurse" ] ;
+             fhir:receiver [ fhir:v "MAP" ] ;
+             fhir:initiatorActive [ fhir:v "true"^^xsd:boolean ]
+           ]
+         ] )
+       ] [
+         fhir:title [ fhir:v "Not clear" ] ;
+         fhir:description [ fhir:v "Unknown whether patient took medications or not" ]
+       ] )
+     ] [
+       fhir:operation [
+         fhir:name [ fhir:v "Administer drug" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "Nurse" ]
+       ]
+     ] [
+       fhir:pause [ fhir:v "true"^^xsd:boolean ] ;
+       fhir:operation [
+         fhir:name [ fhir:v "Record administration" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "MAP" ] ;
+         fhir:initiatorActive [ fhir:v "true"^^xsd:boolean ]
+       ]
+     ] [
+       fhir:pause [ fhir:v "true"^^xsd:boolean ] ;
+       fhir:operation [
+         fhir:name [ fhir:v "Upload administration reports" ] ;
+         fhir:initiator [ fhir:v "Nurse" ] ;
+         fhir:receiver [ fhir:v "MAP" ] ;
+         fhir:initiatorActive [ fhir:v "true"^^xsd:boolean ] ;
+         fhir:request [
+           fhir:resourceId [ fhir:v "iheadm002" ] ;
+           fhir:versionId [ fhir:v "iheadm002v1" ]
+         ]
+       ]
+     ] [
+       fhir:operation [
+         fhir:name [ fhir:v "Upload administration reports" ] ;
+         fhir:initiator [ fhir:v "MAP" ] ;
+         fhir:receiver [ fhir:v "MAC" ] ;
+         fhir:description [ fhir:v "The nurse's system uploads the administration results to the server" ] ;
+         fhir:request [
+           fhir:resourceId [ fhir:v "iheadm001a" ]
+         ]
+       ]
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+
